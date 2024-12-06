@@ -189,15 +189,9 @@ parent component  and then write child component name as tag in parent component
 
 
 ===========================================================================================================
-# PureComponent :
---it is use to prevent un-necessary re-rendering
-
-
-
-
-
-
-
+# PureComponent :	(Inbuild Class)
+-- it is use to prevent un-necessary re-rendering comp by performancing shallow cmparison.
+-- to achieve this we have extends class cmponent with PureComponent class.
 
 # React.Memo():
 -it is use to preventt unnecessary re-rendering func comp by perfoeming sgaloow comparison.
@@ -240,64 +234,225 @@ TASK-1 : Create class comp with name ToogleImgComp and toogle the img after clic
 TASK-2 : Create class comp with name MultipleImgComp and display the img after click on multiple button.
 TASK-3 : Create class comp with name EmpDetails having state with array of object data, emp  containing property
 		 like  EMPID, EMPNAME, EMPPOST, EMPSAL, EMPCONTACT, Empaddress for 10 emp and display the data .......?
+
+		 
+REACT -  DAY - 3 
+
+TASK-1 : CREATE A NEW REACT PROJ FOR JEWELLARY SHOP WITH 4 COMPONENT  HOME, ABOUT, PRODUCT, CONTACT...
+========================================================================================================================================
+5/12/24	|
+--------
+
+# Routing in react:
+----------------------
+-- navigation of comp.
+-- by writting routing path name in browser in browser url to display comp output  or view.
+-- we use react-router-dom library in react to perform routing.
 ========================================================================================================================================
 
+#  How to install react-router-dom ?
+--> npm install react-router-dom@6			
+
+1. createBrowserDOM():
+-------------------------
+: it is a method  which takes array of type of data.
+: in its obj we use two prpty path, elem.
+: in this method we define all types of routing.
+
+2. RouterProvider():
+------------------------
+--  it helps us to render output of all routing comp on browser.
+========================================================================================================================================
+Folders...
+---> src folder = Main Routing folder = routing.js file
+---> layout folder = LoginComp (FC) = NavComp(FC) = FooterComp (FC) = PageNotFoundComp (FC) + MainDashboardComp (FC)
+========================================================================================================================================
+
+# TYPES OF ROUTING :
+-------------------
+
+1. naming routing  : display component output after writting component routing path name in browser url.
+
+2. default routing : display component output without routing path name.
+
+3. parameterize routing : display component output after passing parameter with routing path name.
+
+4. child routing : 
+-- display one routing inside another routing.
+-- to perform child routing we use children property in obj 
+
+5. wild-card routing(*) : when user write wrong path name in browser url then we decide what component output should display.
+-- in wild-card routing path we 
 
 
 
 
+======================================================================================================================???
+
+
+# How to create layout for react proj ???
+
+# class comp Lidfecycle  method.
+--it comes with four phases.
+
+1. Mounting Phase : when comp initialize.
+
+	--- constructor : when class obj initialize constructor get execute automatically.
+	
+	--- getDerivedStateFromProps: it is static method which  execute automatically, 
+		and it is use tpo set value coming from props to state.
+	
+	--- render: it is responsible to render component data.
+	
+	--- componentDidMount:  it will execute immediately after render method.
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+2. Update Phase: when DOM manipulation is done.
+
+	-- shouldComponentUpdate: it decide wheather component will update or not.
+							: it return boolean value, if true then component will update.
+ 
+	-- getSnapShotbeforeUpdate: it return previous data 0f props and state before updation of it.
+
+	-- render: it is responsible to render component data.
+
+	-- componentWillUpdate: it will retrun updated values of state and props
+
+--------------------------------------------------------------------------------------------------------------------
+
+3. Unmounting Phase : when component is deleted.
+
+-- componentWillunmount: it just call before component deleted, it is use to disconnect component 
+						 connection with other component.
 
 
 
+--------------------------------------------------------------------------------------------------------------------
+
+4. Error phase :
+
+-- getDerivedStateFromError(): it execute automatically when error occurs in components.
+
+-- componentDidcatch(): it return error log.
+
+--------------------------------------------------------------------------------------------------------------------
+# React / Reduct extension :-
+
+--> rfce   = create normal func component.
+--> rafce  = create arrow func component.
+--> rce    = create class component
+--> rconst = create constructor with super method and state.
 
 
+======================================================================================================================
+
+# Hooks in React :
+------------------
+-- it allows us to wse class comp feature in func comp
+-- by using hooks we can use state in func comp 
+-- in reavct hooks introduce in react  version-16.
 
 
+# Rules to use Hooks :-
+----------------------
+-- Hooks work only in func comp.
+-- Hooks always use in top-level comp.
+-- Hooks can not be render conditionally.
 
 
+1. useState Hook    : 
+2. useEffect Hook   :
+3. useContext Hook  :
+4. useRef Hook      :
+5. useReducer Hook  :
+6. useCallback Hook :
+7. useMemo Hook     :
 
 
+1. useState Hook :-
+--------------------
+-- if you want to use state in func comp for that you have to use useState hook.
+-- it return two values, 
+1. currentState
+2. function-to-update-stateData.
+-- before using it, import it first from react library.
+syntax : const [currentState, functionToUpdate] = useState(value).
 
 
+--------------------------------------------------------------------------------------------------------------------
+
+2. useEffect Hook :-
+---------------------
+-- it will execute after component render data.
+-- it will handle work of componentDidMount, componentDidUpdate, componentWillunmount in func.
+-- it takes two values  1.callback function. 2. dependencies.
+syntax : useEffect(() => {}, dependencies);
 
 
+case-1 : when no dependencies values.
+	   : use effect will execute after every render.
+syntax : useEffect(()=>{});
+
+case-2 : when we pass dependencies value as black array.
+	   : use effect will execute after every render.
+syntax : useEffect(()=>{},[]);
+
+case-3 : when we have to execute useEffect hook as we want.
+	   : we pass value in dependencies.
+syntax : useEffect(()=>{}, dependencies);
+-------------------------------------------------------------------------------------------------------------------
+======================================================================================================================
+6-12-24 |
+---------
+
+# validation for dropdown :
+
+# CRUD 
+-REST Fake API :
+Axios library : it is use to make request from react app to server.
+- how to install Axios = CMD = npm i Axios
 
 
+# json-server : it is dummmy serevr, which serevre environment to database
+CMD = npm install json-server
 
 
+# json database : 
+
+# How to start and json-server upload db.json
+cd src/shared/database (press Enter)
+
+npx json-server --watch -p 8888 db.json (press enter)
 
 
+-------------------------------------------------------------------------------------------------------------------
+FOLDERS :- 
+src folder = CRUD folder = ProductDashComp fc, ProductAddComp fc, ProductEditComp fc
+-------------------------------------------------------------------------------------------------------------------
 
 
+# get request : to fetch data from  server.
+
+# Material UI : 
+-- it provide inbuilt react component, which makes react project attractive.
+-- as well as it provide 
+
+--its  offiical website is www.mui.com
+
+#1 How to install mui ?
+npm install @mui/material @emotion/react @emotion/styled
+
+#2 How to install material icon.
 
 
+3---import EditIcon from '@mui/icons-material/Edit';
 
 
+======================================================================================================================
+ UseNavigate : it is use to perform automatic navigation
+ UsePara
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ as
 

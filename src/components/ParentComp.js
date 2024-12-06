@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ChildComp from "./ChildComp";
 import MyPureComp from "./MyPureComp"
+import MyMemoComp from "./MyMemoComp";
 
 class ParentComp extends Component {
 

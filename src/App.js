@@ -9,11 +9,12 @@ import MyStateComp from './components/MyStateComp';
 import ParentComp from './components/ParentComp';
 import SankareshFunc from './Task/SankareshComp';
 import MyPureComp from './components/MyPureComp';
+import MyMemoComp from './components/MyMemoComp'; 
 import MyImageComp from './components/MyImagesComp';
 import UserComp from "./components/UserComp";
 import ErrorBoundryComp from './components/ErrorBoundry';
 import VirtualDOM from './components/VirtualDOM';
-
+import EmpDetailsComp from './Task/EmpDetailsComp';
 function App() {
   return (
     <div className="App">
@@ -53,7 +54,7 @@ function App() {
       <ClickCounterComp/>
        */}
       {/* <MyImageComp/> */}
-      <UserComp user="ben"/>
+      {/* <UserComp user="ben"/>
       <ErrorBoundryComp>
         <UserComp user="sivaji"/>
       </ErrorBoundryComp>
@@ -63,7 +64,9 @@ function App() {
       <ErrorBoundryComp>
         <UserComp user="surya"/>
       </ErrorBoundryComp>
-      <VirtualDOM></VirtualDOM>
+      <VirtualDOM></VirtualDOM> */}
+
+      <EmpDetailsComp></EmpDetailsComp>
     </div>
   );
 }
