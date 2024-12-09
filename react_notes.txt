@@ -238,6 +238,7 @@ TASK-3 : Create class comp with name EmpDetails having state with array of objec
 		 
 REACT -  DAY - 3 
 
+==============================================================================================================================
 TASK-1 : CREATE A NEW REACT PROJ FOR JEWELLARY SHOP WITH 4 COMPONENT  HOME, ABOUT, PRODUCT, CONTACT...
 ========================================================================================================================================
 5/12/24	|
@@ -415,7 +416,7 @@ Axios library : it is use to make request from react app to server.
 - how to install Axios = CMD = npm i Axios
 
 
-# json-server : it is dummmy serevr, which serevre environment to database
+# json-server : it is dummmy serevr, which server environment to database
 CMD = npm install json-server
 
 
@@ -437,7 +438,7 @@ src folder = CRUD folder = ProductDashComp fc, ProductAddComp fc, ProductEditCom
 
 # Material UI : 
 -- it provide inbuilt react component, which makes react project attractive.
--- as well as it provide 
+-- as well as it provide inbuilt themes. use builtin template, cards etc...
 
 --its  offiical website is www.mui.com
 
@@ -451,8 +452,79 @@ npm install @mui/material @emotion/react @emotion/styled
 
 
 ======================================================================================================================
- UseNavigate : it is use to perform automatic navigation
- UsePara
+ 
+UseNavigate : it is use to perform automatic navigation
+UsePara
 
- as
+======================================================================================================================
+9-12-24
+
+
+# web-storage: it is use to store user data on browser
+
+1.local storage:it store user data permanantly.
+2.session storage: it store user data for limited time.
+
+# Protected Routing :
+
+# bootstrap : it provide in-buil classes.
+
+# react-bootstrap : it provide inbuilt UI Component.
+http://react-bootstrap.github.io/
+
+
+# How to install react-bootstrap ?
+npm install react-
+
+# MUI : it provide inbuilt UI component
+
+
+
+-----------------------------------------------------------------------------------------------
+Is our high level code in project a server to support for we need to install server and the command.
+
+
+# How to create built file of react project ?
+npm run build
+
+# How to run build file ?
+serve -s build
+
+===================================================================================================================================
+===================================================================================================================================
+
+
+# What is Testing in REACT ?
+
+--> s/w pre-requist
+-nodejs =>  node --version
+-git => git --version 
+
+
+with react two comes for testing 
+
+1. react-testing : it is use to execute or run test programe.
+
+2. jest : it is test runner or it provide platform to run tetscases.
+
+How to create testing component ?
+componentName.test.js
+
+
+TDD (Test Driven Development) : it is software testing process, in which developer write test case before development.
+
+# to perform tetsing in react need to write
+npm run test 
+
+--------------------------------------------------------------
+test("msg",function) method :
+
+-- it is methode whcih is use to perfro munit ttetsing
+-- it takes two parameters.
+
+1. message : in this message developer write what he is going ot perform in short.
+
+2. function :
+
+
 
