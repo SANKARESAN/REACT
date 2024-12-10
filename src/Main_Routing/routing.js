@@ -11,6 +11,7 @@ import UseEffectHooksComp from "../Hooks/UseEffectHooksComp";
 import CssComp from '../components/CssComp';
 import EventComp from '../components/EventComp';
 
+import DataListComp from '../reduxCode/api/DataListComp';       //
 import PageNotFoundComp from '../layout/PageNotFoundComp'
 import MainDashboardComp from "../layout/MainDashboardComp";
 import LoginComp from "../layout/LoginComp";
@@ -19,6 +20,14 @@ import NavComp from "../layout/NavComp";
 import EmpDetailsComp from "../Task/EmpDetailsComp";
 import MyFavColorComp from "../components/MyFavColorComp";
 import FormValComp from "../components/FormValComp";
+import ProductAddComp from "../CRUD/ProductAddComp";
+import ProductDashComp from "../CRUD/ProductDashComp";
+import ProductEditComp from "../CRUD/ProductEditComp";
+import ProtectedRoutingComp from "../Main_Routing/ProtectedRoutingComp";
+
+import MycarouselComp from "../components/MycarouselComp"
+
+
 
 const routing = createBrowserRouter([
 
@@ -28,11 +37,18 @@ const routing = createBrowserRouter([
     
     {path:"empdetail",element:<EmpDetailsComp></EmpDetailsComp>},
 
-    {path:"mainDashboard",element:<MainDashboardComp/>, children:[
+    {path:"mainDashboard",element:<ProtectedRoutingComp Component = {MainDashboardComp}/>, children:[
         //default routing
 
         {path:"favcolor", element:<MyFavColorComp newColor="Green"></MyFavColorComp>},
         {path:"formval", element:<FormValComp></FormValComp>},
+        {path:"productadd", element:<ProductAddComp></ProductAddComp>},
+        {path:"productdash", element:<ProductDashComp></ProductDashComp>},
+        {path:"editproduct/:id", element:<ProductEditComp></ProductEditComp>},
+
+        {path:"MycarouselComp", element:<MycarouselComp></MycarouselComp>},
+
+        {path:"datalist", element:<DataListComp></DataListComp>},
 
         {path:"",element:<MyStateComp></MyStateComp>},
         {path:"mystate",element:<MyStateComp></MyStateComp>},
@@ -54,13 +70,12 @@ const routing = createBrowserRouter([
             {path:"useeffect",element:<UseEffectHooksComp/>},
         ]},
    
-
     ]},
 
     
     //wild-card routing
 
-    {path:"*",element:<PageNotFoundComp />}
+    {path:"*",element:<PageNotFoundComp/>}
 ]);
 
 export default routing;

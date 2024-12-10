@@ -1,4 +1,4 @@
-//  import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
 import ClassComp from './components/ClassComp';
 import ConditionalRenComp from './components/ConditionalRenComp';
@@ -18,7 +18,7 @@ import EmpDetailsComp from './Task/EmpDetailsComp';
 function App() {
   return (
     <div className="App">
-    {/* <header className="App-header">
+    <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -31,9 +31,9 @@ function App() {
         >
           Learn React
         </a>
-      </header> */}
+      </header>
    
-      <h1>Welcome you all in react sessions</h1>
+      {/* <h1>Welcome you all in react sessions</h1> */}
        {/*
       <SankareshFunc/>
       <ClassComp/>
@@ -66,7 +66,7 @@ function App() {
       </ErrorBoundryComp>
       <VirtualDOM></VirtualDOM> */}
 
-      <EmpDetailsComp></EmpDetailsComp>
+      {/* <EmpDetailsComp></EmpDetailsComp> */}
     </div>
   );
 }

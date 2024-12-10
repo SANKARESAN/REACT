@@ -1,79 +1,116 @@
-import axios from 'axios';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add'; 
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import AddIcon from '@mui/icons-material/Add';
+import { Link, Outlet } from 'react-router-dom';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { Button, Modal } from 'react-bootstrap';
 
-const ProductDashComp= () => {
-    const [product, setProduct] = useState([])
+function ProductDashComp() {
+    const [product, setProduct] = useState([]);
 
+    const [show, setShow] = useState(false);
 
-    
-    useEffect(()=>{
-        fetchData();
-    },[]);
-
-
-    const fetchData  = ()=>{
-        axios.get("http://localhost:8888/products").then((response)=>{
-            console.log(response.data);
-            setProduct(response.data);
-        }).catch((error)=>{});
+    const handleClose = () => setShow(false);
+    const handleShow = (val) => {
+        setShow(true);
+        setShow(val);
     }
 
-    const deleteProduct = (id)=> {
-        // console.log(id);
-        axios.delete(`http://localhost:8888/products/${id}`).then(()=>{
-            window.alert("product deleted successfully");
-            fetchData();
-        }).catch((error)=>{})
+    useEffect(() => {
+        getData();
+    }, [])
+
+    const getData = () => {
+        axios.get("http://localhost:8888/products").then((res) => {
+            setProduct(res.data);
+        }).catch((error) => { })
     }
 
+    const editFun = (id) => {
+        window.alert(`Edit button clicked ${id}`);
+    }
+
+
+    const deleteFun = (id) => {
+        // window.alert(`Delete button clicked ${id}`);
+        let conf = window.confirm("Do you want to Delete it");
+        conf && axios.delete(`http://localhost:8888/products/${id}`).then(() => {
+            getData();
+        }).catch((error) => { });
+    }
 
     return (
         <div>
-            <h2>This is Product Dash Component</h2>
-    
-            <Link to="/mainDashboard/productadd" className='btn btn-outline-success btn-ms mt-2 mb-2'>
-            <AddIcon></AddIcon> Add
+            <h2>This is ProductDashComp</h2>
+            <Link to="/mainDashboard/productadd" className='btn btn-primary mt-3 mb-3'>
+                <AddIcon></AddIcon> Add
             </Link>
-        
 
-            <table className='table table-hover table-bordered table-striped text-center'>
+            <table className='table table-hover table-bordered table-striped'>
+
                 <thead>
-                <tr>
-                    <th>SI.No</th>
-                    <th>Name</th>
-                    <th>price</th>
-                    <th>company</th>
-                    <th>Quatity</th>
-                    <th>Action</th>
-                </tr>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Company</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {
-                    product.length > 0 && product.map((val,index)=>{
-                        return <tr key={val.id}>
-                            <td>{index+1}</td>
-                            <td>{val.pname}</td>
-                            <td>{val.pprice}</td>
-                            <td>{val.pcompany}</td>
-                            <td>{val.pquantity}</td>
-                            <td>
-                                <Link to={`/mainDashboard/productedit/${val.id}`} className='btn btn-outline-success btn-sm'>
-                                    <EditIcon></EditIcon>
-                                </Link>
-                                <button type='button' onClick={()=>deleteProduct(val.id)} 
-                                className='btn btn-outline-danger btn-sm'>
-                                    <DeleteIcon></DeleteIcon>
-                                </button>
-                            </td>
-                        </tr>
-                    })
-                }
+
+                    {
+                        product.map((val, index) => {
+                            return <tr key={val.id}>
+                                <td>{index + 1}</td>
+                                <td>{val.pname}</td>
+                                <td>{val.pprice}</td>
+                                <td>{val.pcompany}</td>
+                                <td>{val.pquantity}</td>
+                                <td>
+                                    <button type='button' onClick={()=>handleShow(val)} className='btn btn-outline-primary'>
+                                        <VisibilityIcon></VisibilityIcon>
+                                    </button>
+
+                                    <Link to={`/mainDashboard/editproduct/${val.id}`} className='btn btn-outline-success' >
+                                        <EditIcon></EditIcon>
+                                    </Link>
+
+                                    <button type='button' onClick={() => { deleteFun(val.id) }} className='btn btn-outline-danger'>
+                                        <DeleteIcon></DeleteIcon>
+                                    </button>
+                                </td>
+                            </tr>
+                        })
+                    }
+
                 </tbody>
             </table>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>{show.pname}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <span>Name : </span><strong>{show.pname}</strong>   <br></br>
+                    <span>Price : </span><strong>{show.pprice}</strong>   <br></br>
+                    <span>Company : </span><strong>{show.pcompany}</strong>   <br></br>
+                    <span>Quantity : </span><strong>{show.pquantity}</strong>   <br></br>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     )
 }
