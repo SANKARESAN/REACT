@@ -30,3 +30,82 @@
     text-align: center; /* Center the text */
     flex-grow: 1; /* Allow the text to take remaining space */
 }
+
+.text-warning {
+    font-size: 24px;
+}
+
+.contact-us-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: auto;
+    margin: 0 auto;
+    background-image: url('../assests/bgimg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    /* Optional: add padding to ensure content isn't right against the edges */
+}
+
+h1, h2 {
+    color: #b88a56; /* Gold-like color for elegance */
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.contact-details {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+}
+
+.contact-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white; /* Text color to contrast with background */
+    padding: 5px; /* Add some padding for better readability */
+    border-radius: 3px; /* Slight border-radius for rounded corners */
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #b88a56;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #9a7445;
+}
+
+

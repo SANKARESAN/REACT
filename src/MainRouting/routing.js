@@ -13,16 +13,18 @@ import HeaderComp from "../Layouts/HeaderComp";
 
 const routing = createBrowserRouter([
 
-    {path:"",element:<FooterComp/>},
-    {path:"maindashboard",element:<MaindashboardComp/>},
-    {path:"nav",element:<NavComp/>},
-    {path:"pagenotfound",element:<PagenotFoundComp/>},
-    {path:"header",element:<HeaderComp/>},
-
-    {path:"home",element:<HomeComp/>},
-    {path:"about",element:<AboutComp/>},
-    {path:"contact",element:<ContactComp/>},
-    {path:"product",element:<ProductComp/>},
+    // {path:"",element:<FooterComp/>},
+    {path:"/",element:<MaindashboardComp/>,children:[
+        {path:"/pagenotfound",element:<PagenotFoundComp/>},
+        {path:"/header",element:<HeaderComp/>},
+    
+        {path:"/home",element:<HomeComp/>},
+        {path:"/about",element:<AboutComp/>},
+        {path:"/contact",element:<ContactComp/>},
+        {path:"/product",element:<ProductComp/>},
+    ]},
+    // {path:"nav",element:<NavComp/>},
+   
 
     // {path:"mainDashboard",element:<ProtectedRoutingComp Component = {MainDashboardComp}/>, children:[
     
